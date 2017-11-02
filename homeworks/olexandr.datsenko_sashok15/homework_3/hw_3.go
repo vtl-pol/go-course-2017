@@ -31,6 +31,6 @@ func main() {
 		for j := 1; j <= a-i; j++ {
 			fmt.Print(" ")
 		}
-	fmt.Println(str[:i], "",  str[:i])
+	fmt.Println(str[:i], "", str[:i])
 	}
 }

@@ -34,10 +34,12 @@ func main() {
 
 	fmt.Printf("Height: %d\n", h)
 
-	for i := 1; i <= h; i++ {
-		s := strings.Repeat(Sym, i)
+	if true {
 		sf := "%" + strconv.Itoa(h) + "[1]s  %[1]s\n"
-		fmt.Printf(sf, s)
+		for i := 1; i <= h; i++ {
+			s := strings.Repeat(Sym, i)
+			fmt.Printf(sf, s)
+		}
 	}
 
 }

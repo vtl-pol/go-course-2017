@@ -15,7 +15,6 @@ func main() {
 
 		for x := h - i; x <= h; x++ {
 			fmt.Print("#")
-
 		}
 		fmt.Print("  ")
 

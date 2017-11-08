@@ -28,4 +28,15 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	for i := 0; i < height; i++ {
+		for j := 0; j < height*2+2; j++ {
+			s := " "
+			if (j < height || j >= height+2) && (j-i <= height+2) && (i+j > height-2) {
+				s = "#"
+			}
+			fmt.Print(s)
+		}
+		fmt.Println()
+	}
 }

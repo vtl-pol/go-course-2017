@@ -1,15 +1,14 @@
-package main
+package LinkedList
 
 import (
-	"github.com/drhihi/go-course-2017/homeworks/alexandr.kravchenko_drhihi/homework_4/LinkedList"
 	"fmt"
 	"testing"
 	"log"
 )
 
-var l *LinkedList.LinkedList
+var l *LinkedList
 
-func prinList(l *LinkedList.LinkedList) {
+func prinList(l *LinkedList) {
 	fmt.Print("linked list: ")
 	for k, v := range l.Value() {
 		fmt.Printf("{%d: %v}", k, v)
@@ -20,11 +19,11 @@ func prinList(l *LinkedList.LinkedList) {
 func initLinkedList() {
 	fmt.Println("--init--")
 	l = nil
-	l = LinkedList.Append(l,"one")
-	l = LinkedList.Append(l,2)
-	l = LinkedList.Append(l,"three")
-	l = LinkedList.Append(l,4)
-	fmt.Printf("len: %d\n", LinkedList.Len(l))
+	l = Append(l,"one")
+	l = Append(l,2)
+	l = Append(l,"three")
+	l = Append(l,4)
+	fmt.Printf("len: %d\n", Len(l))
 	prinList(l)
 	fmt.Printf("----\n\n")
 }

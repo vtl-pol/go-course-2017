@@ -15,7 +15,7 @@ func New() *LinkedList {
 	return &LinkedList{}
 }
 
-// Add element to list
+// Add element to end of list
 func (t *LinkedList) Add(e interface{}) {
 	newNode := newNode(e, nil)
 
@@ -26,6 +26,44 @@ func (t *LinkedList) Add(e interface{}) {
 	}
 	t.last = newNode
 	t.size++
+}
+
+// Insert element to list in index
+func (t *LinkedList) Insert(index int, e interface{}) {
+	if index == 0 {
+		newNode := newNode(e, t.head)
+		t.head = newNode
+		t.size++
+	} else if index >= t.Size() {
+		for i := t.Size(); i < index; i++ {
+			t.Add(nil)
+		}
+		t.Add(e)
+	} else {
+		var prev *node
+		node := t.head
+		for i := 0; i < index; i++ {
+			prev = node
+			node = node.getNext()
+		}
+		newNode := newNode(e, node)
+		prev.setNext(newNode)
+		t.size++
+	}
+}
+
+// Set replace value by index
+func (t *LinkedList) Set(index int, e interface{}) error {
+	error := t.checkIndex(index)
+	if error != nil {
+		return error
+	}
+	node := t.head
+	for i := 0; i < index; i++ {
+		node = node.getNext()
+	}
+	node.value = e
+	return nil
 }
 
 // Get element by index
@@ -52,7 +90,7 @@ func (t *LinkedList) Remove(args interface{}) bool {
 }
 
 func (t *LinkedList) remove(e interface{}) bool {
-	prev := t.head
+	var prev *node
 	for node := t.head; node != nil; node = node.getNext() {
 		value := node.getValue()
 		if (e == nil) && (value == nil) || (e != nil) && (e == value) {
@@ -99,14 +137,14 @@ func (t *LinkedList) checkIndex(index int) error {
 	return nil
 }
 
-// IsEmpty returns true if list is empty
-func (t *LinkedList) IsEmpty() bool {
-	return t.size == 0
-}
-
 // Size of list
 func (t *LinkedList) Size() int {
 	return t.size
+}
+
+// IsEmpty returns true if list is empty
+func (t *LinkedList) IsEmpty() bool {
+	return t.Size() == 0
 }
 
 func (t *LinkedList) String() string {

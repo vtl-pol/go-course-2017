@@ -3,9 +3,10 @@ package list
 // List is the common interface implemented by LinkedList
 type List interface {
 	Add(e interface{})
+	Insert(index int, e interface{})
+	Set(index int, e interface{})
 	Remove(e interface{}) bool
-	Set(index uint64, e interface{})
-	Get(index uint64) interface{}
-	Size() uint64
-	IsEmpty() uint64
+	Get(index int) interface{}
+	Size() int
+	IsEmpty() int
 }

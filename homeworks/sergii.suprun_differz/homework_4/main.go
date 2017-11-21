@@ -29,6 +29,18 @@ func main() {
 	list.Remove(1)
 	fmt.Println(list.String())
 
+	list.Set(1, "last element")
+	fmt.Println(list)
+
 	list.Remove(0)
 	fmt.Println(list.String())
+
+	list.Insert(0, "ins 0")
+	list.Insert(1, "ins 1")
+	list.Insert(4, "ins 4")
+	fmt.Println(list.String())
+
+	list.Remove(nil)
+	fmt.Println(list.String())
+
 }

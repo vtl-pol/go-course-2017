@@ -3,14 +3,14 @@ package linkedlist
 import "errors"
 import "fmt"
 
-// LinkedList data structure
+// LinkedList data
 type LinkedList struct {
 	head *node
 	last *node
 	size int
 }
 
-// New creates new list
+// New creates a list
 func New() *LinkedList {
 	return &LinkedList{}
 }
@@ -18,7 +18,6 @@ func New() *LinkedList {
 // Add element to end of list
 func (t *LinkedList) Add(e interface{}) {
 	newNode := newNode(e, nil)
-
 	if t.last == nil {
 		t.head = newNode
 	} else {
@@ -28,7 +27,7 @@ func (t *LinkedList) Add(e interface{}) {
 	t.size++
 }
 
-// Insert element to list in index
+// Insert element into list
 func (t *LinkedList) Insert(index int, e interface{}) {
 	if index == 0 {
 		newNode := newNode(e, t.head)
@@ -79,7 +78,7 @@ func (t *LinkedList) Get(index int) (interface{}, error) {
 	return node.getValue(), nil
 }
 
-// Remove implements method overloading (by value or by index)
+// Remove implements method overloading - by value or by index
 func (t *LinkedList) Remove(args interface{}) bool {
 	switch v := args.(type) {
 	case int:
@@ -93,7 +92,7 @@ func (t *LinkedList) remove(e interface{}) bool {
 	var prev *node
 	for node := t.head; node != nil; node = node.getNext() {
 		value := node.getValue()
-		if (e == nil) && (value == nil) || (e != nil) && (e == value) {
+		if e == nil && value == nil || e != nil && e == value {
 			t.unlink(prev, node)
 			return true
 		}
@@ -131,7 +130,7 @@ func (t *LinkedList) unlink(prev *node, node *node) {
 }
 
 func (t *LinkedList) checkIndex(index int) error {
-	if (index >= t.size) || (index < 0) {
+	if index >= t.size || index < 0 {
 		return errors.New("index is out of bounds")
 	}
 	return nil

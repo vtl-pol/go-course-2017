@@ -61,7 +61,7 @@ func (t *LinkedList) Set(index int, e interface{}) error {
 	for i := 0; i < index; i++ {
 		node = node.getNext()
 	}
-	node.value = e
+	node.setValue(e)
 	return nil
 }
 

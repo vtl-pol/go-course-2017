@@ -13,6 +13,10 @@ func (n *node) getValue() interface{} {
 	return n.value
 }
 
+func (n *node) setValue(value interface{}) {
+	n.value = value
+}
+
 func (n *node) getNext() *node {
 	return n.next
 }

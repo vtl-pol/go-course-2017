@@ -1,2 +1,11 @@
-.vscode
 debug
+.idea
+.vscode
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Gradle
+.gradle

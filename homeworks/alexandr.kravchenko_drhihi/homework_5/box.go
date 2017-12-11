@@ -30,13 +30,13 @@ func (b *Box) sortCorner(corner int) {
 		panic("the corner is not right")
 
 	case 1:
-		for k, y, x, fy, fx := 0, 0, 0, 0, 0; k < 16; k++ {
+		for k, y, x, fy, fx := 0, 0, 0, 0, 0; k < len(slice); k++ {
 			b.sell[y][x] = slice[k]
 			y--
 			x++
-			if y < 0 || x > 3 {
+			if y < 0 || x > b.height-1 {
 				fy++
-				if fy > 3 {
+				if fy > b.height-1 {
 					fy--
 					fx++
 				}
@@ -46,11 +46,11 @@ func (b *Box) sortCorner(corner int) {
 		}
 
 	case 2:
-		for k, y, x, fy, fx := 0, 0, 3, 0, 3; k < 16; k++ {
+		for k, y, x, fy, fx := 0, 0, b.height-1, 0, b.height-1; k < len(slice); k++ {
 			b.sell[y][x] = slice[k]
 			y++
 			x++
-			if y > 3 || x > 3 {
+			if y > b.height-1 || x > b.height-1 {
 				fx--
 				if fx < 0 {
 					fx++
@@ -62,13 +62,13 @@ func (b *Box) sortCorner(corner int) {
 		}
 
 	case 3:
-		for k, y, x, fy, fx := 0, 3, 0, 3, 0; k < 16; k++ {
+		for k, y, x, fy, fx := 0, b.height-1, 0, b.height-1, 0; k < len(slice); k++ {
 			b.sell[y][x] = slice[k]
 			y--
 			x--
 			if y < 0 || x < 0 {
 				fx++
-				if fx > 3 {
+				if fx > b.height-1 {
 					fx--
 					fy--
 				}
@@ -78,11 +78,11 @@ func (b *Box) sortCorner(corner int) {
 		}
 
 	case 4:
-		for k, y, x, fy, fx := 0, 3, 3, 3, 3; k < 16; k++ {
+		for k, y, x, fy, fx := 0, b.height-1, b.height-1, b.height-1, b.height-1; k < len(slice); k++ {
 			b.sell[y][x] = slice[k]
 			y++
 			x--
-			if y > 3 || x < 0 {
+			if y > b.height-1 || x < 0 {
 				fy--
 				if fy < 0 {
 					fy++

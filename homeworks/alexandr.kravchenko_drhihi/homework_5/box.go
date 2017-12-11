@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-course-2017/homeworks/alexandr.kravchenko_drhihi/homework_5/models"
+	"github.com/drhihi/go-course-2017/homeworks/alexandr.kravchenko_drhihi/homework_5/models"
 	"math/rand"
 	"sort"
 	"strconv"

@@ -10,3 +10,6 @@ debug
 
 # Gradle
 .gradle
+
+TEMP.txt
+
